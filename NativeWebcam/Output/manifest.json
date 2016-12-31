@@ -1,0 +1,5 @@
+{
+	"title": "Linear Regression",
+	"description": "Draws the mean line from given points in the cartesian plan",
+	"native": true
+}
