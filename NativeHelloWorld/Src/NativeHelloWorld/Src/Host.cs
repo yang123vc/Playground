@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.IO;
 
-namespace SelfTest
+namespace NativeHelloWorld
 {
 	class Host : BaseHost
 	{
@@ -17,6 +17,21 @@ namespace SelfTest
 		// -override OnPostedNotification() to handle notifications generated with SciterHost.PostNotification()
 	}
 
+	public class HostEvh : SciterEventHandler
+	{
+		protected override bool OnScriptCall(SciterElement se, string name, SciterValue[] args, out SciterValue result)
+		{
+			switch(name)
+			{
+				case "Host_HelloWorld":
+					result = new SciterValue("Hello World! (from native behavior)");
+					return true;
+			}
+
+			result = null;
+			return false;
+		}
+	}
 
 	// This base class overrides OnLoadData and does the resource loading strategy
 	// explained at http://misoftware.rs/Bootstrap/Dev
@@ -32,7 +47,7 @@ namespace SelfTest
 		public BaseHost()
 		{
 		#if !DEBUG
-			_archive.Open(SciterSharpAppResource.ArchiveResource.resources);
+			_archive.Open(SciterAppResource.ArchiveResource.resources);
 		#endif
 		}
 

@@ -7,9 +7,9 @@
     <ProjectGuid>{FABEBB54-7E6E-4DCD-A4A3-D713EA38731B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SelfTest</RootNamespace>
-    <AssemblyName>SelfTest</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>NativeHelloWorld</RootNamespace>
+    <AssemblyName>NativeHelloWorld</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -79,18 +79,12 @@
     <None Include="Resources\IconMain.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\NativeLoading.html" />
+    <None Include="res\NativeHelloWorld.html" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="sciter.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\NativeLoadDemo\NativeLoadDemo.csproj">
-      <Project>{4f052fd7-f3e9-422f-9a7a-9f06d351d7d5}</Project>
-      <Name>NativeLoadDemo</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

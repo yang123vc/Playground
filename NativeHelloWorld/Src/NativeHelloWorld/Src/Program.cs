@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SelfTest
+namespace NativeHelloWorld
 {
 	class Program
 	{
@@ -22,14 +22,14 @@ namespace SelfTest
 			var wnd = new SciterWindow();
 			wnd.CreateMainWindow(1500, 800);
 			wnd.CenterTopLevelWindow();
-			wnd.Title = "NativeLoading";
+			wnd.Title = "NativeHelloWorld";
 			wnd.Icon = Properties.Resources.IconMain;
 
 			// Prepares SciterHost and then load the page
 			var host = new Host();
 			host.Setup(wnd);
-			host.RegisterBehaviorHandler(typeof(NativeLoadDemo.NativeLoad));
-			host.SetupPage("NativeLoading.html");
+			host.AttachEvh(new HostEvh());
+			host.SetupPage("index.html");
 
 			// Show window and Run message loop
 			wnd.Show();
