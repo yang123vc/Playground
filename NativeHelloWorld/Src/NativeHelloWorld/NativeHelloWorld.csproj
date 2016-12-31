@@ -91,7 +91,7 @@
     <PreBuildEvent>$(ProjectDir)scripts\packWindows.bat $(ConfigurationName)</PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>$(ProjectDir)scripts\postBuild.bat</PostBuildEvent>
+    <PostBuildEvent>$(ProjectDir)scripts\postBuild.bat $(ConfigurationName)</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
