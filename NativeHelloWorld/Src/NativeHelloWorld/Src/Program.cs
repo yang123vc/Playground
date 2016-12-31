@@ -28,7 +28,8 @@ namespace NativeHelloWorld
 			// Prepares SciterHost and then load the page
 			var host = new Host();
 			host.Setup(wnd);
-			host.AttachEvh(new HostEvh());
+			//host.AttachEvh(new HostEvh());
+			host.RegisterBehaviorHandler(typeof(HostEvh));
 			host.SetupPage("NativeHelloWorld.html");
 
 			// Show window and Run message loop

@@ -1,11 +1,11 @@
 <html>
 <head>
 	<style>
-		h1 { color: blue; font-size: 30px; }
+		h1 { color: blue; font-size: 30px; behavior: HostEvh; }
 	</style>
 
 	<script type="text/tiscript">
-		$(h1).text = view.Host_HelloWorld();
+		$(h1).text = $(h1).Host_HelloWorld();
 
 		var version_major = Sciter.VERSION >> 16;
 		var version_minor = Sciter.VERSION & 0xFFFF;
