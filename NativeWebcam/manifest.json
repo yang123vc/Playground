@@ -1,5 +1,5 @@
 {
-	"title": "Linear Regression",
-	"description": "Draws the mean line from given points in the cartesian plan",
+	"title": "Webcam",
+	"description": "Uses a native behavior to show you webcam live image. Uses AForge library to access your device.",
 	"native": true
 }

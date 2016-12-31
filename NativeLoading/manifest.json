@@ -1,0 +1,5 @@
+{
+	"title": "NativeLoadDemo",
+	"description": "Uses a native behavior to simply show Hello World!",
+	"native": true
+}
