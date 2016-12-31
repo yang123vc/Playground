@@ -29,7 +29,7 @@ namespace NativeHelloWorld
 			var host = new Host();
 			host.Setup(wnd);
 			host.AttachEvh(new HostEvh());
-			host.SetupPage("index.html");
+			host.SetupPage("NativeHelloWorld.html");
 
 			// Show window and Run message loop
 			wnd.Show();
