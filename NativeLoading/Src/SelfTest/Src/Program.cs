@@ -22,14 +22,14 @@ namespace SelfTest
 			var wnd = new SciterWindow();
 			wnd.CreateMainWindow(1500, 800);
 			wnd.CenterTopLevelWindow();
-			wnd.Title = "SelfTest";
+			wnd.Title = "NativeLoading";
 			wnd.Icon = Properties.Resources.IconMain;
 
 			// Prepares SciterHost and then load the page
 			var host = new Host();
 			host.Setup(wnd);
 			host.RegisterBehaviorHandler(typeof(NativeLoadDemo.NativeLoad));
-			host.SetupPage("index.html");
+			host.SetupPage("NativeLoading.html");
 
 			// Show window and Run message loop
 			wnd.Show();

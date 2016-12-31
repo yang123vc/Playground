@@ -79,7 +79,7 @@
     <None Include="Resources\IconMain.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\index.html" />
+    <None Include="res\NativeLoading.html" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="sciter.dll">
