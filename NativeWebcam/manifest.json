@@ -1,5 +1,0 @@
-{
-	"title": "Webcam",
-	"description": "Uses a native behavior to show you webcam live image. Uses AForge library to access your device.",
-	"native": true
-}
