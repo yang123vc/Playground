@@ -1,6 +1,32 @@
 <!-- OmniView:off -->
 <html>
+
 <body>
-	<frame src="https://rawgit.com/MISoftware/Playground/master/Test/test.html" />
+	<script type="text/tiscript">
+		view.root.onExchange = function(evt) 
+      {
+         if( evt.type == Event.X_DRAG_ENTER )
+         {
+           log(evt.draggingDataType);
+           return true;
+         }
+		 else if( evt.type == Event.X_DRAG_LEAVE )
+         {
+			 log("Event.X_DRAG_LEAVE");
+           return true;
+         }
+         else if( evt.type == Event.X_DRAG)
+         {
+			 log("Event.X_DRAG");
+           return true;
+         }
+         else if( evt.type == Event.X_DROP)
+         {
+			 log("Event.X_DROP");
+           return true;
+         }
+      }
+	</script>
 </body>
+
 </html>
