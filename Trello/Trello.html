@@ -1,4 +1,4 @@
-<!-- OmniView:on, console:off -->
+<!-- OmniView:off -->
 <html>
 <head>
 	<style>
@@ -73,26 +73,30 @@
 		// STYLE for lists -> #tpl-list
 		main { padding: 5px 0; flow: horizontal; }
 		main > * { width: 270px; }
-		main #drop-targert { height: 462px; background: rgba(0, 0, 0, 0.2); }
 		main #btn-add-list { display: block; }
 
 		section
 		{
+			// links the element with script class
+			prototype: DndListBehavior;
+
 			flow: vertical;
 			margin: 0 10px;
+			overflow-y: hidden;
 			height: *;
 			max-height: max-content;
-			overflow-y: hidden;
 
 			background: #E2E4E6;
 			border-radius: 3px;
 		}
-		section:active
+		section.indrag { background: rgba(0, 0, 0, 0.2); }
+		section.indrag > * { visibility: hidden; }
+
+		/*section:active
 		{
 			position: relative;
-			transform: rotate(4deg);
 			box-shadow: 0 5px 6px rgba(0, 0, 0, .15);
-		}
+		}*/
 
 		section .list-header
 		{
@@ -121,7 +125,8 @@
 		// STYLE for cards -> #tpl-card
 		section ul /*list of cards which might show overflow scrolbars*/
 		{
-			height: *;
+			// TODO: uncomment in next Sciter release
+			//height: *;
 			overflow-y: scroll-indicator;
 
 			margin: 0;
@@ -131,6 +136,9 @@
 
 		section li
 		{
+			// links the element with script class
+			prototype: DndCardBehavior;
+
 			flow: stack;
 			margin: 0 8px 6px 8px;
 
@@ -138,6 +146,7 @@
 			border-bottom: 1px solid #ccc;
 			border-radius: 3px;
 			overflow: hidden;
+
 		}
 		section li:hover { background: #edeff0; cursor: pointer; }
 		section li .content > div
@@ -154,6 +163,9 @@
 		}
 		section li:hover .card-edit { visibility: visible; }
 
+		section li.indrag > * { visibility: hidden !important; }
+		section li.indrag { background: #c4c9cc; }
+
 		section li i.ft.ft-pencil
 		{
 			padding: 5px 9px;
@@ -166,6 +178,8 @@
 	</style>
 
 	<script type="text/tiscript">
+		include "drag-n-drop.tis";
+		
 		var data = [
 			{
 				board-name: "Basics",
@@ -207,7 +221,7 @@
 			for(var s in data)
 			{
 				var el_section = self#tpl-list[0].clone();
-				el_main.insert(el_section, el_main.length - 2);
+				el_main.insert(el_section, el_main.length - 1);
 				el_section.$(.list-header span).text = s#board-name;
 
 				for(var c in s.cards)
@@ -227,6 +241,20 @@
 		$(body).subscribe(function(evt) {
 			this.scrollTo(this.scroll(#left)-10*evt.wheelDelta, 0);
 		}, Event.MOUSE, Event.MOUSE_WHEEL);
+
+		function Element.install_link_handler()
+		{
+			this.onMouse = function(evt)
+			{
+				if(evt.type==(Event.MOUSE_UP | Event.SINKING) && evt.target.$is(a))
+				{
+					if(evt.target.@#href)
+						Sciter.launch(evt.target.@#href);
+					return true;
+				}
+			}
+		}
+		$(body).install_link_handler();
 	</script>
 </head>
 
@@ -259,13 +287,12 @@
 	</div>
 
 	<header>
-		<img src="logo_mi.png" />
+		<a href="http://misoftware.rs"><img src="logo_mi.png" /></a>
 	</header>
 
 	<h1 .board-header.link-taco>Welcome Board</h1>
 
 	<main>
-		<section #drop-targert />
 		<button #btn-add-list.std-btn>Add a new list...</button>
 	</main>
 </body>
