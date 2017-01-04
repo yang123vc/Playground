@@ -1,0 +1,45 @@
+<!-- OmniView:on -->
+<html>
+<head>
+<style>
+	html, body { margin: 0; height: *; flow: vertical; overflow: hidden; }
+
+	section
+	{
+		flow: vertical;
+		height: *;
+		max-height: max-content;
+		border: solid 1px red;
+	}
+
+	div
+	{
+		height: *;// BUG: makes this element to have no height
+		border: solid 3px blue;
+		overflow-y: auto;
+	}
+</style>
+</head>
+
+<body>
+    <section>
+		<b>Header</b>
+		<div>
+			<p>asdasd</p>
+			<p>asdasd</p>
+			<p>asdasd</p>
+			<p>asdasd</p>
+			<p>asdasd</p>
+			<p>asdasd</p>
+			<p>asdasd</p>
+			<p>asdasd</p>
+			<p>asdasd</p>
+			<p>asdasd</p>
+			<p>asdasd</p>
+			<p>asdasd</p>
+			<p>asdasd</p>
+		</div>
+		<b>Footer</b>
+	</section>
+</body>
+</html>

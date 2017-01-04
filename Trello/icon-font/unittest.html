@@ -1,0 +1,31 @@
+<!--HtmlView:off-->
+<html>
+<style>
+	@import	url(trello-sciter.css);
+
+	@const CLR_BLUE: #0064c8;
+	.std-btn
+	{
+		flow: horizontal;
+		border-radius: 3px;
+		background: #97d3f1;
+		color: white;
+		font-size: 12px;
+	}
+	.std-btn:hover, .std-btn:owns-popup
+	{
+		cursor: pointer;
+		background: @CLR_BLUE;
+	}
+	.std-btn:disabled
+	{
+		background: #c2c2c2;
+	}
+	.std-btn i { margin-bottom: 1px; }
+</style>
+
+<body>
+	<button .std-btn><i .ft.ft-dot-3 /></button>
+	<button .std-btn><i .ft.ft-down-open /></button>
+</body>
+</html>
